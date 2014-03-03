@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+            #soru {
+                margin : 60px;
+                padding : 20px;
+                font-family : Ubuntu;
+                font-size : 24pt;
+                border : 1px black solid;
+                border-radius : 20px;
+                box-shadow : 10px 10px 5px #ccc;
+                text-align : justify;
+            }
+
+            #price {
+                color : red;
+            }
+
+            #discount {
+                color : red;
+            }
+        </style>
+        <meta charset="utf-8">
+        <script src="jquery-2.1.0.min.js"></script>
+        <script src="mustache.js"></script>
+        <script>
+            $(document).ready(function(){
+
+                var names = [
+                    'Ali', 'Ahmet', 'Ayşe', 'Aslı', 'Behçet', 'Berna', 'Bora', 'Burcu', 'Burak',
+                    'Can', 'Cemil', 'Ceyda', 'Ceren', 'Cüneyt', 'Didem', 'Deniz', 'Demet', 'Dursun',
+                    'Emir', 'Esra', 'Elif', 'Erdinç', 'Engin', 'Eylem', 'Fatma'
+                ];
+
+                function getRandomName() {
+                    ri = Math.floor( Math.random() * names.length );
+                    return names[ri];
+                }
+
+                function getRandomValue(minValue, maxValue, step) {
+
+                    var randomRange = (maxValue - minValue) / step;
+                    var randomBase = Math.floor( Math.random() * randomRange );
+                    var randomValue = minValue + randomBase * step;
+
+                    return randomValue;
+                }
+
+                function getRandomDiscount(minDiscount, maxDiscount, step) {
+
+                    var discountRange = (maxDiscount - minDiscount)/step;
+
+                    var randomDiscount = Math.floor( Math.random() * discountRange );
+                    var discountValue = minDiscount + (randomDiscount * step);
+
+                    return discountValue;
+                }
+
+                function buildPercentQuestion() {
+
+                    function getRandomThing() {
+
+                        var things = [
+                            { i: "sandalyeyi", e: "sandalyeye" },
+                            { i: "masayı", e: "masaya" },
+                            { i: "dolabı", e: "dolaba" },
+                            { i: "vazoyu", e: "vazoya" },
+                            { i: "kitaplığı", e: "kitaplığa" },
+                            { i: "tabloyu", e: "tabloya" },
+                            { i: "sehpayı", e: "sehpaya" },
+                            { i: "oyunu", e: "oyuna" },
+                            { i: "oyuncağı", e: "oyuncağa" },
+                            { i: "satranç takımını", e: "satranç takımına" },
+                            { i: "tableti", e: "tablete" },
+                            { i: "cep telefonunu", e: "cep telefonuna" },
+                            { i: "kulaklığı", e: "kulaklığa" },
+                            { i: "ceketi", e: "cekete" },
+                            { i: "kazağı", e: "kazağa" },
+                            { i: "atkıyı", e: "atkıya" },
+                            { i: "ayakkabıyı", e: "ayakkabıya" },
+                            { i: "kol saatini", e: "kol saatine" },
+                            { i: "güneş gözlüğünü", e: "güneş gözlüğüne" }
+                        ];
+
+                        var randomThingIndex = Math.floor( Math.random() * things.length );
+                            
+                        return things[ randomThingIndex ];
+                    }
+
+                    function findSolution(value, percent) {
+
+                        var pValue = percent * value / 100;
+
+                        return value - pValue;
+                    }
+
+                    var price = getRandomValue(50, 500, 50);
+                    var discount = getRandomDiscount(10, 50, 10);
+
+                    var view = {
+                        name: getRandomName(),
+                        base_value: price, 
+                        thing: getRandomThing(),
+                        percent: discount,
+                        solution: findSolution(price, discount)
+                    };
+
+                    var template = $("#t1").html();
+
+                    var output = Mustache.render(template, view);
+
+                    return output;
+                }
+
+                var output = buildPercentQuestion();
+
+                $('#soru').html(output);
+            });
+        </script>
+    </head>
+    <body>
+        <div id="t1" hidden>
+            {{name}} <span id="price">{{base_value}}</span> lira değerinde bir {{thing.i}} <span id="discount">%{{percent}}</span> indirimle almıştır. 
+            Buna göre {{name}} {{thing.e}} kaç lira ödemiştir? <span id="solution" hidden>Yanıt : {{solution}}</span>
+        </div>
+
+        <div id="soru"></div>
+    </body>
+</html>
