@@ -3,9 +3,7 @@ User Stories
 
 Here you will find user stories grouped under proper sections. User stories are specified in the following format:
 
-::
-
-    As a <role>. <goal/desire>, so that <rationale>.
+>    As a {role}, {goal/desire}, so that {rationale}.
 
 In above format, **rationale** part is optional, and may be required only for clarification.
 
