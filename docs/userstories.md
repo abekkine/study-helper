@@ -46,3 +46,5 @@ Gameplay
 
 ```US14``` As a user, i want to be challenged by questions regarding my weak spots frequently.
 
+```US16``` As a user, questions for my wrong answers should be saved, and asked in progression.
+
