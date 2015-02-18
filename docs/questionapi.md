@@ -8,7 +8,7 @@ public interface Question {
     // Method to set topic to study.
     void SetTopic( topic );
     // Method to display current question to player.
-    void DisplayQuestion();
+    void Show();
     // Method to request a new question from current topic as the current question.
     void RequestNewQuestion();
     // Method to check a user provided answer to current question.
