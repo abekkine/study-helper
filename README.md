@@ -31,3 +31,5 @@ Design
 ------
 
 Coupling among the view, game object, questions, and the input will be loose, so that one can freely update / modify of the game, question, input objects, and/or views independently (without affecting the interfaces or internals of other objects).
+
+You may find the object interfaces for [game](docs/gameapi.md), [question](docs/questionapi.md), and [input](docs/inputapi.md) objects in given links as pseudocode. Application flow in pseudo-code may be found [here](docs/appflow.md).
