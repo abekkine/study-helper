@@ -2,7 +2,7 @@ var createGameArea = function(width, height) {
     var margin = 10;
     var area = new Rectangle(margin, margin, width, height);
     var path = new Path.Rectangle(area);
-    
+
     path.fillColor = '#ccf';
 };
 
