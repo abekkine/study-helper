@@ -1,14 +1,8 @@
-$(function(){
+$(function() {
 
-    GAME.Setup("game", 550, 550);
-    GAME.Draw();
+    GAME.Setup("game", 515, 515);
 
-    GAME.PlayerAction("Test Me!");
-    GAME.Show();
-    GAME.Hide();
-    GAME.Start();
-    GAME.Resume();
-    GAME.Pause();
-    GAME.SaveAndExit();
-    GAME.Exit();
+    GAME.PlayerAction(false);
+    GAME.PlayerAction(false);
+    GAME.PlayerAction(false);
 });
