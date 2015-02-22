@@ -3,3 +3,15 @@ body {
     font-family : ubuntu;
     font-size : 16pt;
 }
+
+#game {
+    float : left;
+}
+
+#question {
+    font-size : 30pt;
+    width : 80px;
+    margin-top : 10px;
+    padding-left : 5px;
+    float : left;
+}

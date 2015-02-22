@@ -1,0 +1,33 @@
+<style>
+    #opcol {
+        width: 20%;
+    }
+
+    #op {
+        border-spacing: 0;
+        width : 100%;
+    }
+
+    #add_a, #add_b, #add_s {
+        width : 50%;
+        text-align: right;
+    }
+
+    .opline {
+        border-top: 2px solid;
+    }
+</style>
+<table id="op">
+    <tr>
+        <td id="opcol"></td>
+        <td id="add_a">{{add_a}}</td>
+    </tr>
+    <tr>
+        <td>+</td>
+        <td id="add_b">{{add_b}}</td>
+    </tr>
+    <tr>
+        <td class="opline"></td>
+        <td class="opline" id="add_s">{{add_s}}</td>
+    </tr>
+</table>

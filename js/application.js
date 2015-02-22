@@ -1,8 +1,21 @@
 $(function() {
 
-    GAME.Setup("game", 515, 515);
+    $('#act_true').click(function() {
+        console.log('true click');
+        GAME.PlayerAction(true);
+    });
 
-    GAME.PlayerAction(false);
-    GAME.PlayerAction(false);
-    GAME.PlayerAction(false);
+    $('#act_false').click(function() {
+        console.log('false click');
+        GAME.PlayerAction(false);
+    });
+
+    $('#act_next').click(function() {
+        console.log('next click');
+        QUESTION.NewQuestion();
+    });
+
+    GAME.Setup('game', 515, 515);
+
+    QUESTION.NewQuestion();
 });
