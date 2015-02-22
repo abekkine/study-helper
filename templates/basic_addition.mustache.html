@@ -11,23 +11,54 @@
     #add_a, #add_b, #add_s {
         width : 50%;
         text-align: right;
+        padding-right : 15px;
     }
 
     .opline {
         border-top: 2px solid;
     }
+
+    .normal {
+        border: 1px solid white;
+    }
+
+    .framed {
+        color : #ccf;
+        border: 1px dashed blue;
+    }
 </style>
 <table id="op">
     <tr>
         <td id="opcol"></td>
-        <td id="add_a">{{add_a}}</td>
+        {{#hide_a}}
+        <td id="add_a" class="framed">?</td>
+        {{/hide_a}}
+        {{^hide_a}}
+        <td id="add_a" class="normal">{{add_a}}</td>
+        {{/hide_a}}
     </tr>
     <tr>
         <td>+</td>
-        <td id="add_b">{{add_b}}</td>
+        {{#hide_b}}
+        <td id="add_b" class="framed">?</td>
+        {{/hide_b}}
+        {{^hide_b}}
+        <td id="add_b" class="normal">{{add_b}}</td>
+        {{/hide_b}}
     </tr>
     <tr>
-        <td class="opline"></td>
-        <td class="opline" id="add_s">{{add_s}}</td>
+        <td colspan=2></td>
+    </tr>
+    <tr>
+        <td class="opline" colspan=2></td>
+    </tr>
+    <tr>
+        <td></td>
+        {{#hide_s}}
+        <td id="add_s" class="framed">?</td>
+        {{/hide_s}}
+        {{^hide_s}}
+        <td id="add_s" class="normal">{{add_s}}</td>
+        {{/hide_s}}
     </tr>
 </table>

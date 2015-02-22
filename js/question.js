@@ -1,23 +1,43 @@
 var QUESTION = (function() {
 
+    var _add_a, _add_b, _add_s;
     var _question_template = undefined;
-    var _question_param = {
-        a: undefined,
-        b: undefined,
-        s: undefined
-    };
+    var _question_param = {};
 
     var randomInRange = function(a, b) {
         return a + Math.floor(Math.random() * (b - a + 1));
     }
 
     var formQuestion = function() {
-        var a = randomInRange(0, 8);
-        var b = randomInRange(0, 9 - a);
+        var h_a, h_b, h_s;
+        _add_a = randomInRange(0, 8);
+        _add_b = randomInRange(0, 9 - _add_a);
+        _add_s = _add_a + _add_b;
+
+        _question_type = randomInRange(1, 3);
+        switch (_question_type) {
+            case 1:
+                // Ask A
+                h_a = true;
+                break;
+
+            case 2:
+                // Ask B
+                h_b = true;
+                break;
+
+            case 3:
+                // Ask S
+                h_s = true;
+                break;
+        }
         _question_param = {
-            add_a: a,
-            add_b: b,
-            add_s: a + b
+            hide_a: h_a,
+            hide_b: h_b,
+            hide_s: h_s,
+            add_a: _add_a,
+            add_b: _add_b,
+            add_s: _add_s
         };
     };
 
