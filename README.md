@@ -33,3 +33,12 @@ Design
 Coupling among the view, game object, questions, and the input will be loose, so that one can freely update / modify of the game, question, input objects, and/or views independently (without affecting the interfaces or internals of other objects).
 
 You may find the object interfaces for [game](docs/gameapi.md), [question](docs/questionapi.md), and [input](docs/inputapi.md) objects in given links as pseudocode. Application flow in pseudo-code may be found [here](docs/appflow.md).
+
+How to Run
+----------
+
+On linux systems, just cd into project root directory, and run
+
+```$ python -m SimpleHTTPServer 8000```
+
+command. Open your browser and go to URL http://localhost:8000. Application will be there.
