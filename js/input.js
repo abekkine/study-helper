@@ -25,7 +25,7 @@ var INPUT = (function(game, question) {
                 // Add to entered string if alpha-numeric.
                 value = String.fromCharCode(key);
                 console.log(value);
-                if (/[a-zA-Z0-9]/.test(value)) {
+                if (question.ValidChar(value)) {
                     _entered_string += value;
                 }
             }

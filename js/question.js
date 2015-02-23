@@ -69,6 +69,10 @@ var QUESTION = (function() {
 
         CheckAnswer: function(answer) {
             return (_correct_answer == answer);
+        },
+
+        ValidChar: function(c) {
+            return /[0-9]/.test(c);
         }
     };
 })();
