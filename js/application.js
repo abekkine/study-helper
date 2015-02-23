@@ -1,6 +1,7 @@
 $(function() {
 
-    $(document).keypress(function(event) {
+    $(document).keydown(function(event) {
+        event.preventDefault();
         INPUT.AddOneCharacter(event.which);
     });
 

@@ -1,8 +1,9 @@
 var QUESTION = (function() {
 
     var _add_a, _add_b, _add_s;
-    var _question_template = undefined;
+    var _question_template;
     var _question_param = {};
+    var _correct_answer;
 
     var randomInRange = function(a, b) {
         return a + Math.floor(Math.random() * (b - a + 1));
@@ -19,16 +20,19 @@ var QUESTION = (function() {
             case 1:
                 // Ask A
                 h_a = true;
+                _correct_answer = _add_a;
                 break;
 
             case 2:
                 // Ask B
                 h_b = true;
+                _correct_answer = _add_b;
                 break;
 
             case 3:
                 // Ask S
                 h_s = true;
+                _correct_answer = _add_s;
                 break;
         }
         _question_param = {
@@ -61,6 +65,10 @@ var QUESTION = (function() {
         NewQuestion: function() {
             formQuestion();
             renderQuestion();
+        },
+
+        CheckAnswer: function(answer) {
+            return (_correct_answer == answer);
         }
     };
 })();
