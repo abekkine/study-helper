@@ -1,5 +1,9 @@
 $(function() {
 
+    $(document).keypress(function(event) {
+        INPUT.AddOneCharacter(event.which);
+    });
+
     $('#act_true').click(function() {
         console.log('true click');
         GAME.PlayerAction(true);
