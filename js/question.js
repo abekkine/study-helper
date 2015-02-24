@@ -4,6 +4,7 @@ var QUESTION = (function() {
     var _question_template;
     var _question_param = {};
     var _correct_answer;
+    var _current_answer = "?";
 
     var randomInRange = function(a, b) {
         return a + Math.floor(Math.random() * (b - a + 1));
@@ -41,7 +42,8 @@ var QUESTION = (function() {
             hide_s: h_s,
             add_a: _add_a,
             add_b: _add_b,
-            add_s: _add_s
+            add_s: _add_s,
+            current_answer: _current_answer
         };
     };
 
@@ -73,6 +75,11 @@ var QUESTION = (function() {
 
         ValidChar: function(c) {
             return /[0-9]/.test(c);
+        },
+
+        ShowAnswer: function(answer) {
+            _question_param.current_answer = answer;
+            fillHtml();
         }
     };
 })();

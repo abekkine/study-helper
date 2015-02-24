@@ -1,3 +1,8 @@
  ☐ Game Area rightmost corners are not rounded.
+ ☐ A better indication for the answer is right or wrong, should be provided.
+ ☐ After all questions answered, and no more available, game should end properly.
+ ☐ Adding and removing cells should be animated.
+ ☐ Adding and removing cells should be audible.
  ✔ Simple testing buttons/controls will be added to test PlayerAction() method. @done (15-02-22 10:18)
  ✔ Question module will be implemented. @done (15-02-22 10:18)
+ ✔ Entered answer should be displayed, before submitting. @done (15-02-24 22:54)

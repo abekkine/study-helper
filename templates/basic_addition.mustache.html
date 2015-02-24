@@ -31,7 +31,7 @@
     <tr>
         <td id="opcol"></td>
         {{#hide_a}}
-        <td id="add_a" class="framed">?</td>
+        <td id="add_a" class="framed">{{ current_answer }}</td>
         {{/hide_a}}
         {{^hide_a}}
         <td id="add_a" class="normal">{{add_a}}</td>
@@ -40,7 +40,7 @@
     <tr>
         <td>+</td>
         {{#hide_b}}
-        <td id="add_b" class="framed">?</td>
+        <td id="add_b" class="framed">{{ current_answer }}</td>
         {{/hide_b}}
         {{^hide_b}}
         <td id="add_b" class="normal">{{add_b}}</td>
@@ -55,7 +55,7 @@
     <tr>
         <td></td>
         {{#hide_s}}
-        <td id="add_s" class="framed">?</td>
+        <td id="add_s" class="framed">{{ current_answer }}</td>
         {{/hide_s}}
         {{^hide_s}}
         <td id="add_s" class="normal">{{add_s}}</td>

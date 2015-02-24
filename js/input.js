@@ -27,6 +27,7 @@ var INPUT = (function(game, question) {
                 console.log(value);
                 if (question.ValidChar(value)) {
                     _entered_string += value;
+                    question.ShowAnswer(_entered_string);
                 }
             }
 
