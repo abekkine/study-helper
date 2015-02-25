@@ -19,10 +19,12 @@ var INPUT = (function(game, question) {
                 }
             } else if (key == 13) {
                 // Entere : 13
-                var result = question.CheckAnswer(_entered_string);
-                game.PlayerAction(result);
-                question.NewQuestion();
-                _entered_string = '';
+                if (_entered_string.length > 0) {
+                    var result = question.CheckAnswer(_entered_string);
+                    game.PlayerAction(result);
+                    question.NewQuestion();
+                    _entered_string = '';
+                }
             } else {
                 // Add to entered string if alpha-numeric.
                 value = String.fromCharCode(key);
