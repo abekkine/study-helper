@@ -4,19 +4,15 @@ var QUESTION = (function() {
     var _question_template;
     var _question_param = {};
     var _correct_answer;
-    var _current_answer = "?";
-
-    var randomInRange = function(a, b) {
-        return a + Math.floor(Math.random() * (b - a + 1));
-    };
+    var _current_answer = '?';
 
     var formQuestion = function() {
         var h_a, h_b, h_s;
-        _add_a = randomInRange(0, 8);
-        _add_b = randomInRange(0, 9 - _add_a);
+        _add_a = UTIL.randomInRange(0, 8);
+        _add_b = UTIL.randomInRange(0, 9 - _add_a);
         _add_s = _add_a + _add_b;
 
-        _question_type = randomInRange(1, 3);
+        _question_type = UTIL.randomInRange(1, 3);
         switch (_question_type) {
             case 1:
                 // Ask A
