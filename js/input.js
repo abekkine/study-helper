@@ -8,12 +8,14 @@ var INPUT = (function(game, question) {
                 // Escape : 27
                 // Clear entered string.
                 _entered_string = '';
+                question.ShowAnswer(_entered_string);
             } else if (key == 8) {
                 // Backspace : 8
                 // Delete last character from entered string.
                 if (_entered_string.length > 0) {
                     _entered_string = _entered_string.substring(
                                         0, _entered_string.length - 1);
+                    question.ShowAnswer(_entered_string);
                 }
             } else if (key == 13) {
                 // Entere : 13

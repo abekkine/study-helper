@@ -74,7 +74,12 @@ var QUESTION = (function() {
         },
 
         ShowAnswer: function(answer) {
-            _question_param.current_answer = answer;
+            if (answer === '') {
+                _question_param.current_answer = '?';
+            } else {
+                _question_param.current_answer = answer;
+            }
+
             fillHtml();
         }
     };
