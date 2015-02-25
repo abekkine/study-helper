@@ -1,7 +1,7 @@
 Study Helper
 ============
 
-Help kids to study elementary math by playing games with automatically generated questions (currently Turkish only).
+Help kids to study elementary math by playing games with automatically generated questions.
 
 Basics
 ------
