@@ -42,3 +42,8 @@ On linux systems, just cd into project root directory, and run
 ```$ python -m SimpleHTTPServer 8000```
 
 command. Open your browser and go to URL http://localhost:8000. Application will be there.
+
+Dependencies
+------------
+
+Our application depends on [jquery](http://jquery.com/) for simplification, [mustache](http://mustache.github.io/) for rendering html templates, and [raphael](http://raphaeljs.com/) for visualization.
