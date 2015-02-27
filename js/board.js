@@ -6,6 +6,8 @@ var BOARD = (function() {
         _board_height = 5,
         _num_cells,
         _cell_size = 80,
+        _core_size = 10,
+        _offset,
         _padding = 10,
         _stones = {};
 
@@ -18,6 +20,7 @@ var BOARD = (function() {
         }
 
         _num_cells = _board_width * _board_height;
+        _offset = (_cell_size - _core_size) / 2;
     };
 
     var setupCanvas = function() {
@@ -32,7 +35,9 @@ var BOARD = (function() {
     };
 
     var getNewStone = function(index) {
-        var ix, iy, x, y;
+        var ix, iy,
+            x, y,
+            newRect;
 
         ix = index % _board_width;
         iy = Math.floor(index / _board_width);
@@ -40,8 +45,29 @@ var BOARD = (function() {
         x = ix * (_cell_size + _padding) + _padding;
         y = iy * (_cell_size + _padding) + _padding;
 
-        return _paper.rect(x, y, _cell_size, _cell_size, 4)
-              .attr({ 'fill' : '#f00', 'stroke-width' : 0 });
+        newRect = _paper.rect(x + _offset, y + _offset,
+                              _core_size, _core_size, 4)
+                        .attr({ 'fill' : '#080',
+                                'stroke-width' : 0 });
+
+        newRect.stop().animate({ 'x': x,
+                                 'y': y,
+                                 'width': _cell_size,
+                                 'height': _cell_size }, 100);
+
+        return newRect;
+    };
+
+    var deleteStoneAnim = function(stone) {
+
+        stone.stop().animate({
+            'x': stone.getBBox().x + _offset,
+            'y': stone.getBBox().y + _offset,
+            'width': _core_size,
+            'height': _core_size
+        }, 100, function() {
+            stone.remove();
+        });
     };
 
     var addRandomStone = function() {
@@ -63,13 +89,11 @@ var BOARD = (function() {
             while (true) {
                 randomIndex = UTIL.randomInRange(0, _num_cells - 1);
                 if (_stones.hasOwnProperty(randomIndex)) {
-                    _stones[randomIndex].remove();
+                    deleteStoneAnim(_stones[randomIndex]);
                     delete _stones[randomIndex];
                     break;
                 }
             }
-        } else {
-            console.log('Board is empty!');
         }
     };
 
