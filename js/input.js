@@ -28,14 +28,11 @@ var INPUT = (function(game, question) {
             } else {
                 // Add to entered string if alpha-numeric.
                 value = String.fromCharCode(key);
-                console.log(value);
                 if (question.ValidChar(value)) {
                     _entered_string += value;
                     question.ShowAnswer(_entered_string);
                 }
             }
-
-            console.log(_entered_string);
         }
     };
 })(GAME, QUESTION);
