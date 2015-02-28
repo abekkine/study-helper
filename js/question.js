@@ -1,41 +1,51 @@
 var QUESTION = (function() {
 
     var _add_a, _add_b, _add_s;
+    var _h_a, _h_b, _h_s;
     var _question_template;
     var _question_param = {};
     var _correct_answer;
     var _current_answer = '?';
 
-    var formQuestion = function() {
-        var h_a, h_b, h_s;
+    var buildQuestion = function() {
+
         _add_a = UTIL.randomInRange(0, 8);
         _add_b = UTIL.randomInRange(0, 9 - _add_a);
         _add_s = _add_a + _add_b;
+    };
+
+    var pickQuestionType = function() {
+        _h_a = undefined;
+        _h_b = undefined;
+        _h_s = undefined;
 
         _question_type = UTIL.randomInRange(1, 3);
         switch (_question_type) {
             case 1:
                 // Ask A
-                h_a = true;
+                _h_a = true;
                 _correct_answer = _add_a;
                 break;
 
             case 2:
                 // Ask B
-                h_b = true;
+                _h_b = true;
                 _correct_answer = _add_b;
                 break;
 
             case 3:
                 // Ask S
-                h_s = true;
+                _h_s = true;
                 _correct_answer = _add_s;
                 break;
         }
+    };
+
+    var formQuestion = function() {
         _question_param = {
-            hide_a: h_a,
-            hide_b: h_b,
-            hide_s: h_s,
+            hide_a: _h_a,
+            hide_b: _h_b,
+            hide_s: _h_s,
             add_a: _add_a,
             add_b: _add_b,
             add_s: _add_s,
@@ -61,6 +71,8 @@ var QUESTION = (function() {
 
     return {
         NewQuestion: function() {
+            buildQuestion();
+            pickQuestionType();
             formQuestion();
             renderQuestion();
         },
