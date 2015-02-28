@@ -3,7 +3,9 @@
 // removes one stone, while each wrong answer adds one.
 var GAME = (function(board) {
 
-    var _num_stones = 10;
+    var _num_stones = 10,
+        _winner,
+        _playing = true;
 
     return {
 
@@ -28,13 +30,40 @@ var GAME = (function(board) {
 
         // Used to send player action into the game.
         PlayerAction: function(value) {
+            if (!_playing) {
+              return;
+            }
+
             if (value === true) {
                 // Delete one cell.
                 board.DeleteStone();
+                _num_stones--;
+                if (board.IsEmpty()) {
+                  // Game is won.
+                  _playing = false;
+                  _winner = 'player';
+                }
             } else {
-                // Add new cell.
-                board.AddStone();
+                // If still playing,
+                if (!board.IsFull()) {
+                  // Add new cell.
+                  board.AddStone();
+                } else {
+                  // Game is lost.
+                  _playing = false;
+                  _winner = 'game';
+                }
             }
+        },
+
+        // Used to detect if game continues
+        IsPlaying: function() {
+            return _playing;
+        },
+
+        // Used to detect winner of game ended
+        Winner: function() {
+            return _winner;
         }
     };
 

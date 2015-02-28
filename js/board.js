@@ -5,6 +5,7 @@ var BOARD = (function() {
         _board_width = 5,
         _board_height = 5,
         _num_cells,
+        _num_stones = 0,
         _cell_size = 80,
         _core_size = 10,
         _offset,
@@ -77,6 +78,7 @@ var BOARD = (function() {
             randomIndex = UTIL.randomInRange(0, _num_cells - 1);
             if (!_stones.hasOwnProperty(randomIndex)) {
                 _stones[randomIndex] = getNewStone(randomIndex);
+                _num_stones++;
                 break;
             }
         }
@@ -91,6 +93,7 @@ var BOARD = (function() {
                 if (_stones.hasOwnProperty(randomIndex)) {
                     deleteStoneAnim(_stones[randomIndex]);
                     delete _stones[randomIndex];
+                    _num_stones--;
                     break;
                 }
             }
@@ -134,6 +137,16 @@ var BOARD = (function() {
             for (var i = 0; i < numStones; i++) {
                 addRandomStone();
             }
+        },
+
+        // Return true, if the board is empty.
+        IsEmpty: function() {
+            return (_num_stones == 0);
+        },
+
+        // Return true if the board is full with stones.
+        IsFull: function() {
+            return (_num_stones >= _num_cells);
         }
     };
 })();

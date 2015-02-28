@@ -18,12 +18,24 @@ var INPUT = (function(game, question) {
                     question.ShowAnswer(_entered_string);
                 }
             } else if (key == 13) {
-                // Entere : 13
+                // Enter : 13
                 if (_entered_string.length > 0) {
                     var result = question.CheckAnswer(_entered_string);
                     game.PlayerAction(result);
-                    question.NewQuestion();
-                    _entered_string = '';
+                    if (game.IsPlaying()) {
+                        // Game continues, ask new question.
+                        question.NewQuestion();
+                        _entered_string = '';
+                    } else {
+                        // Game is over, so
+                        if (game.Winner() === 'player') {
+                            // Winner is player,
+                            console.log('Player Won!');
+                        } else {
+                            // Winner is game.
+                            console.log('Player Lost!');
+                        }
+                    }
                 }
             } else {
                 // Add to entered string if alpha-numeric.
