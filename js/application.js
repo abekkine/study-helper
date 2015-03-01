@@ -1,8 +1,7 @@
 $(function() {
 
     $(document).keydown(function(event) {
-        event.preventDefault();
-        INPUT.AddOneCharacter(event.which);
+        INPUT.AddOneCharacter(event);
     });
 
     GAME.Setup('game', '8x8', 80, 5);
