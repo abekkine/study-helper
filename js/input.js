@@ -38,8 +38,14 @@ var INPUT = (function(game, question) {
                     }
                 }
             } else {
-                // Add to entered string if alpha-numeric.
-                value = String.fromCharCode(key);
+                // Numpad fix.
+                if (key >= 96 && key <= 105) {
+                    value = key - 96;
+                } else {
+                    // Add to entered string if alpha-numeric.
+                    value = String.fromCharCode(key);
+                }
+
                 if (question.ValidChar(value)) {
                     _entered_string += value;
                     question.ShowAnswer(_entered_string);
