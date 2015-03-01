@@ -7,6 +7,22 @@ var GAME = (function(board) {
         _winner,
         _playing = true;
 
+    var audioSetup = function() {
+      ion.sound({
+        sounds: [
+          {
+            name: 'snd_add'
+          },
+          {
+            name: 'snd_del'
+          }
+        ],
+        volume: 0.5,
+        path: 'sounds/',
+        preload: true
+      });
+    };
+
     return {
 
         // Used to set initial number of stones in game (default is 10).
@@ -26,6 +42,8 @@ var GAME = (function(board) {
           board.Init(boardSize);
           // Place initial number of stones on game board.
           board.Populate(_num_stones);
+          // Setup audio
+          audioSetup();
         },
 
         // Used to send player action into the game.
@@ -37,6 +55,7 @@ var GAME = (function(board) {
             if (value === true) {
                 // Delete one cell.
                 board.DeleteStone();
+                ion.sound.play('snd_del');
                 _num_stones--;
                 if (board.IsEmpty()) {
                   // Game is won.
@@ -48,6 +67,7 @@ var GAME = (function(board) {
                 if (!board.IsFull()) {
                   // Add new cell.
                   board.AddStone();
+                  ion.sound.play('snd_add');
                 } else {
                   // Game is lost.
                   _playing = false;

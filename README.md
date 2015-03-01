@@ -46,4 +46,4 @@ command. Open your browser and go to URL http://localhost:8000. Application will
 Dependencies
 ------------
 
-Our application depends on [jquery](http://jquery.com/) for simplification, [mustache](http://mustache.github.io/) for rendering html templates, and [raphael](http://raphaeljs.com/) for visualization.
+Our application depends on [jquery](http://jquery.com/) for simplification, [mustache](http://mustache.github.io/) for rendering html templates, and [raphael](http://raphaeljs.com/) for visualization. Audio effects are performed using [Ion.Sound](http://ionden.com/a/plugins/ion.sound/en.html) library. Sound effects for adding and removing stones were obtained from [freeSFX](http://www.freesfx.co.uk).
