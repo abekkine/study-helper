@@ -10,7 +10,11 @@ var QUESTION = (function() {
     var buildQuestion = function() {
 
         _add_a = UTIL.randomInRange(0, 8);
-        _add_b = UTIL.randomInRange(0, 9 - _add_a);
+        // Fix to reduce probability of zero values.
+        if (_add_a === 0) {
+            _add_a = UTIL.randomInRange(0, 8);
+        }
+        _add_b = UTIL.randomInRange(1, 9 - _add_a);
         _add_s = _add_a + _add_b;
     };
 
