@@ -8,26 +8,44 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    background-color: #004;
+    color: white;
+}
+
+#container {
+    position: relative;
+    width: 1050px;
+    height: 750px;
 }
 
 #game {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin : 40px;
     float : left;
 }
 
 #question {
-    font-size : 30pt;
-    width : 80px;
-    margin-top : 10px;
-    padding-left : 5px;
-    padding-right : 10px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size : 40pt;
+    width : 150px;
     float : left;
-    border: 1px solid blue;
+    background-color : #448;
     border-radius: 4px;
-    padding: 8px;
-    margin: 4px;
+    padding: 20px;
+    margin : 10px;
+    margin-top: 40px;
 }
 
 #keypad {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
     float : left;
     width: 280px;
+    margin : 10px;
+    margin-top: 40px;
 }
