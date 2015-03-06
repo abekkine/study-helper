@@ -8,6 +8,10 @@
         width : 100%;
     }
 
+    #pad {
+        width: 45%;
+    }
+
     #add_a, #add_b, #add_s {
         width : 50%;
         text-align: right;
@@ -19,16 +23,17 @@
     }
 
     .normal {
-        border: 1px solid #004;
+        border: 2px solid #448;
     }
 
     .framed {
         color : #ccf;
-        border: 1px dashed blue;
+        border: 2px dashed #cfc;
     }
 </style>
 <table id="op">
     <tr>
+        <td id="pad"></td>
         <td id="opcol"></td>
         {{#hide_a}}
         <td id="add_a" class="framed">{{ current_answer }}</td>
@@ -38,6 +43,7 @@
         {{/hide_a}}
     </tr>
     <tr>
+        <td></td>
         <td>+</td>
         {{#hide_b}}
         <td id="add_b" class="framed">{{ current_answer }}</td>
@@ -47,12 +53,14 @@
         {{/hide_b}}
     </tr>
     <tr>
-        <td colspan=2></td>
+        <td colspan=3></td>
     </tr>
     <tr>
+        <td></td>
         <td class="opline" colspan=2></td>
     </tr>
     <tr>
+        <td></td>
         <td></td>
         {{#hide_s}}
         <td id="add_s" class="framed">{{ current_answer }}</td>

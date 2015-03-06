@@ -48,7 +48,7 @@ var BOARD = (function() {
 
         newRect = _paper.rect(x + _offset, y + _offset,
                               _core_size, _core_size, 4)
-                        .attr({ 'fill' : '#080',
+                        .attr({ 'fill' : '#f60',
                                 'stroke-width' : 0 });
 
         newRect.stop().animate({ 'x': x,
