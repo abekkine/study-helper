@@ -1,11 +1,12 @@
 var QUESTION = (function() {
 
-    var _add_a, _add_b, _add_s;
-    var _h_a, _h_b, _h_s;
-    var _question_template;
-    var _question_param = {};
-    var _correct_answer;
-    var _current_answer = '?';
+    var _add_a, _add_b, _add_s,
+        _h_a, _h_b, _h_s,
+        _question_template,
+        _question_param = {},
+        _correct_answer,
+        _current_answer = '?',
+        _valid_length = 1;
 
     var buildQuestion = function() {
 
@@ -87,6 +88,10 @@ var QUESTION = (function() {
 
         ValidChar: function(c) {
             return /[0-9]/.test(c);
+        },
+
+        ValidLength: function(l) {
+            return l < _valid_length;
         },
 
         ShowAnswer: function(answer) {

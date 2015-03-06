@@ -37,7 +37,7 @@ var INPUT = (function(game, question) {
                 }
             }
         } else {
-            if (question.ValidChar(key)) {
+            if (question.ValidChar(key) && question.ValidLength(_entered_string.length)) {
                 _entered_string += key;
                 question.ShowAnswer(_entered_string);
             }
