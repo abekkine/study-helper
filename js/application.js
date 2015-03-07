@@ -8,5 +8,5 @@ $(function() {
 
     GAME.Setup('game', '8x8', 80, 5);
 
-    QUESTION.NewQuestion();
+    QUESTION_MGR.NewQuestion();
 });

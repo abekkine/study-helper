@@ -99,4 +99,4 @@ var INPUT = (function(game, question) {
             }
         }
     };
-})(GAME, QUESTION);
+})(GAME, QUESTION_MGR);
