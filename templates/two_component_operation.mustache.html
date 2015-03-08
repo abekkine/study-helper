@@ -12,7 +12,7 @@
         width: 45%;
     }
 
-    #add_a, #add_b, #add_s {
+    #op_1, #op_2, #op_result {
         width : 50%;
         text-align: right;
         padding-right : 15px;
@@ -35,22 +35,22 @@
     <tr>
         <td id="pad"></td>
         <td id="opcol"></td>
-        {{#hide_a}}
-        <td id="add_a" class="framed">{{ current_answer }}</td>
-        {{/hide_a}}
-        {{^hide_a}}
-        <td id="add_a" class="normal">{{add_a}}</td>
-        {{/hide_a}}
+        {{#hide_1}}
+        <td id="op_1" class="framed">{{ current_answer }}</td>
+        {{/hide_1}}
+        {{^hide_1}}
+        <td id="op_1" class="normal">{{op_1}}</td>
+        {{/hide_1}}
     </tr>
     <tr>
         <td></td>
-        <td>+</td>
-        {{#hide_b}}
-        <td id="add_b" class="framed">{{ current_answer }}</td>
-        {{/hide_b}}
-        {{^hide_b}}
-        <td id="add_b" class="normal">{{add_b}}</td>
-        {{/hide_b}}
+        <td>{{ operator }}</td>
+        {{#hide_2}}
+        <td id="op_2" class="framed">{{ current_answer }}</td>
+        {{/hide_2}}
+        {{^hide_2}}
+        <td id="op_2" class="normal">{{op_2}}</td>
+        {{/hide_2}}
     </tr>
     <tr>
         <td colspan=3></td>
@@ -62,11 +62,11 @@
     <tr>
         <td></td>
         <td></td>
-        {{#hide_s}}
-        <td id="add_s" class="framed">{{ current_answer }}</td>
-        {{/hide_s}}
-        {{^hide_s}}
-        <td id="add_s" class="normal">{{add_s}}</td>
-        {{/hide_s}}
+        {{#hide_r}}
+        <td id="op_result" class="framed">{{ current_answer }}</td>
+        {{/hide_r}}
+        {{^hide_r}}
+        <td id="op_result" class="normal">{{op_result}}</td>
+        {{/hide_r}}
     </tr>
 </table>

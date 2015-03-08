@@ -47,12 +47,13 @@ var Q_AddOneDigit = (function() {
 
     var formQuestion = function() {
         _question_param = {
-            hide_a: _h_a,
-            hide_b: _h_b,
-            hide_s: _h_s,
-            add_a: _add_a,
-            add_b: _add_b,
-            add_s: _add_s,
+            hide_1: _h_a,
+            hide_2: _h_b,
+            hide_r: _h_s,
+            op_1: _add_a,
+            op_2: _add_b,
+            operator: '+',
+            op_result: _add_s,
             current_answer: _current_answer
         };
     };
@@ -64,7 +65,7 @@ var Q_AddOneDigit = (function() {
 
     var renderQuestion = function() {
         if (_question_template === undefined) {
-            $.get('templates/basic_addition.mustache.html', function(template) {
+            $.get('templates/two_component_operation.mustache.html', function(template) {
                 _question_template = template;
                 fillHtml();
             });
