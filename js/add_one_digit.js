@@ -7,6 +7,7 @@ var Q_AddOneDigit = (function() {
         _current_answer = '?',
         _valid_length = 1;
 
+    // TODO : Differs between question types.
     var buildQuestion = function() {
 
         _add_a = UTIL.randomInRange(0, 8);
@@ -18,6 +19,7 @@ var Q_AddOneDigit = (function() {
         _add_s = _add_a + _add_b;
     };
 
+    // TODO : should be generalized for all two component question types.
     var pickQuestionType = function() {
         _h_a = undefined;
         _h_b = undefined;
@@ -45,6 +47,7 @@ var Q_AddOneDigit = (function() {
         }
     };
 
+    // TODO : should be generalized for all question types.
     var formQuestion = function() {
         _question_param = {
             hide_1: _h_a,
@@ -58,11 +61,13 @@ var Q_AddOneDigit = (function() {
         };
     };
 
+    // TODO : should be generalized for all question types.
     var fillHtml = function() {
         question_html = Mustache.render(_question_template, _question_param);
         $('#question').html(question_html);
     };
 
+    // TODO : should be generalized for all question types.
     var renderQuestion = function() {
         if (_question_template === undefined) {
             $.get('templates/two_component_operation.mustache.html', function(template) {
@@ -86,10 +91,12 @@ var Q_AddOneDigit = (function() {
             return (_correct_answer == answer);
         },
 
+        // TODO : changes for different question types.
         ValidChar: function(c) {
             return /[0-9]/.test(c);
         },
 
+        // TODO : changes for different question types.
         ValidLength: function(l) {
             return l < _valid_length;
         },
