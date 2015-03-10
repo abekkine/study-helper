@@ -5,10 +5,10 @@ var QUESTION_MGR = (function() {
 
     question_list.push(Q_AddOneDigit);
     question_list.push(Q_SubOneDigit);
-    question_list.push(Q_AddTwoDigit);
-    question_list.push(Q_SubTwoDigit);
-    question_list.push(Q_AddTwoDigitWithCarry);
-    question_list.push(Q_SubTwoDigitWithCarry);
+//    question_list.push(Q_AddTwoDigit);
+//    question_list.push(Q_SubTwoDigit);
+//    question_list.push(Q_AddTwoDigitWithCarry);
+//    question_list.push(Q_SubTwoDigitWithCarry);
 
     return {
         NewQuestion: function() {

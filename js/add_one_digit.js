@@ -63,7 +63,7 @@ var Q_AddOneDigit = (function() {
 
     // TODO : should be generalized for all question types.
     var fillHtml = function() {
-        question_html = Mustache.render(_question_template, _question_param);
+        var question_html = Mustache.render(_question_template, _question_param);
         $('#question').html(question_html);
     };
 
