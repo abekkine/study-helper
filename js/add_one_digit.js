@@ -3,6 +3,7 @@ var Q_AddOneDigit = (function() {
         _h_a, _h_b, _h_s,
         _question_template,
         _question_param = {},
+        _question_type,
         _correct_answer,
         _current_answer = '?',
         _valid_length = 1;
