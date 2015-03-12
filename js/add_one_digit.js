@@ -1,74 +1,70 @@
 var Q_AddOneDigit = (function() {
-    var _add_a, _add_b, _add_s,
-        _h_a, _h_b, _h_s,
+    var _operand_a, _operand_b, _result,
+        _ask_a, _ask_b, _ask_result,
         _question_template,
         _question_param = {},
         _question_type,
         _correct_answer,
         _current_answer = '?',
-        _valid_length = 1;
+        _operator,
+        _valid_length;
 
-    // TODO : Differs between question types.
     var buildQuestion = function() {
 
-        _add_a = UTIL.randomInRange(0, 8);
+        _operand_a = UTIL.randomInRange(0, 8);
         // Fix to reduce probability of zero values.
-        if (_add_a === 0) {
-            _add_a = UTIL.randomInRange(0, 8);
+        if (_operand_a === 0) {
+            _operand_a = UTIL.randomInRange(0, 8);
         }
-        _add_b = UTIL.randomInRange(1, 9 - _add_a);
-        _add_s = _add_a + _add_b;
+        _operand_b = UTIL.randomInRange(1, 9 - _operand_a);
+        _result = _operand_a + _operand_b;
+
+        _operator = '+';
+        _valid_length = 1;
     };
 
-    // TODO : should be generalized for all two component question types.
     var pickQuestionType = function() {
-        _h_a = undefined;
-        _h_b = undefined;
-        _h_s = undefined;
+        _ask_a = false;
+        _ask_b = false;
+        _ask_result = false;
 
         _question_type = UTIL.randomInRange(1, 3);
         switch (_question_type) {
             case 1:
-                // Ask A
-                _h_a = true;
-                _correct_answer = _add_a;
+                _ask_a = true;
+                _correct_answer = _operand_a;
                 break;
 
             case 2:
-                // Ask B
-                _h_b = true;
-                _correct_answer = _add_b;
+                _ask_b = true;
+                _correct_answer = _operand_b;
                 break;
 
             case 3:
-                // Ask S
-                _h_s = true;
-                _correct_answer = _add_s;
+                _ask_result = true;
+                _correct_answer = _result;
                 break;
         }
     };
 
-    // TODO : should be generalized for all question types.
     var formQuestion = function() {
         _question_param = {
-            hide_1: _h_a,
-            hide_2: _h_b,
-            hide_r: _h_s,
-            op_1: _add_a,
-            op_2: _add_b,
-            operator: '+',
-            op_result: _add_s,
+            ask_a: _ask_a,
+            ask_b: _ask_b,
+            ask_result: _ask_result,
+            operand_a: _operand_a,
+            operand_b: _operand_b,
+            result: _result,
+            operator: _operator,
             current_answer: _current_answer
         };
     };
 
-    // TODO : should be generalized for all question types.
     var fillHtml = function() {
         var question_html = Mustache.render(_question_template, _question_param);
         $('#question').html(question_html);
     };
 
-    // TODO : should be generalized for all question types.
     var renderQuestion = function() {
         if (_question_template === undefined) {
             $.get('templates/two_component_operation.mustache.html', function(template) {
@@ -92,12 +88,10 @@ var Q_AddOneDigit = (function() {
             return (_correct_answer == answer);
         },
 
-        // TODO : changes for different question types.
         ValidChar: function(c) {
             return /[0-9]/.test(c);
         },
 
-        // TODO : changes for different question types.
         ValidLength: function(l) {
             return l < _valid_length;
         },

@@ -1,16 +1,13 @@
 var Q_AddTwoDigit = (function() {
-    var _num_AB, _num_CD, _num_EF,
-        _dig_A, _dig_B,
-        _dig_C, _dig_D,
-        _dig_E, _dig_F,
-        _h_AB, _h_CD, _h_EF,
+    var _operand_a, _operand_b, _result,
+        _ask_a, _ask_b, _ask_result,
         _question_template,
         _question_param = {},
         _question_type,
         _correct_answer,
         _current_answer = '?',
-        _valid_length = 2;
-
+        _operator,
+        _valid_length;
 
     var buildQuestion = function() {
         // Add two digit numbers without carry.
@@ -21,53 +18,62 @@ var Q_AddTwoDigit = (function() {
         //   ______
         //      E F
         //
-        _num_EF = UTIL.randomInRange(20, 99);
-        _dig_F = _num_EF % 10;
-        _dig_E = Math.floor(_num_EF / 10);
+        var num_AB, num_CD, num_EF,
+            dig_A, dig_B, dig_C, dig_D, dig_E, dig_F;
+
+        num_EF = UTIL.randomInRange(20, 99);
+        dig_F = num_EF % 10;
+        dig_E = Math.floor(num_EF / 10);
         // Compute ones.
-        _dig_B = UTIL.randomInRange(0, _dig_F);
-        _dig_D = _dig_F - _dig_B;
+        dig_B = UTIL.randomInRange(0, dig_F);
+        dig_D = dig_F - dig_B;
         // Compute tens.
-        _dig_A = UTIL.randomInRange(1, _dig_E - 1);
-        _dig_C = _dig_E - _dig_A;
+        dig_A = UTIL.randomInRange(1, dig_E - 1);
+        dig_C = dig_E - dig_A;
         // Compute numbers.
-        _num_AB = _dig_A * 10 + _dig_B;
-        _num_CD = _dig_C * 10 + _dig_D;
+        num_AB = dig_A * 10 + dig_B;
+        num_CD = dig_C * 10 + dig_D;
+
+        _operand_a = num_AB;
+        _operand_b = num_CD;
+        _result = num_EF;
+        _operator = '+';
+        _valid_length = 2;
     };
 
     var pickQuestionType = function() {
-        _h_AB = undefined;
-        _h_CD = undefined;
-        _h_EF = undefined;
+        _ask_a = false;
+        _ask_b = false;
+        _ask_result = false;
 
         _question_type = UTIL.randomInRange(1, 3);
         switch (_question_type) {
             case 1:
-                _h_AB = true;
-                _correct_answer = _num_AB;
+                _ask_a = true;
+                _correct_answer = _operand_a;
                 break;
 
             case 2:
-                _h_CD = true;
-                _correct_answer = _num_CD;
+                _ask_b = true;
+                _correct_answer = _operand_b;
                 break;
 
             case 3:
-                _h_EF = true;
-                _correct_answer = _num_EF;
+                _ask_result = true;
+                _correct_answer = _result;
                 break;
         }
     };
 
     var formQuestion = function() {
         _question_param = {
-            hide_1: _h_AB,
-            hide_2: _h_CD,
-            hide_r: _h_EF,
-            op_1: _num_AB,
-            op_2: _num_CD,
-            operator: '+',
-            op_result: _num_EF,
+            ask_a: _ask_a,
+            ask_b: _ask_b,
+            ask_result: _ask_result,
+            operand_a: _operand_a,
+            operand_b: _operand_b,
+            result: _result,
+            operator: _operator,
             current_answer: _current_answer
         };
     };

@@ -1,55 +1,57 @@
 var Q_SubOneDigit = (function() {
-    // Sub one digit.
-    var _correct_answer,
-        _current_answer = '?',
-        _valid_length,
-        _question_param,
+    var _operand_a, _operand_b, _result,
+        _ask_a, _ask_b, _ask_result,
         _question_template,
-        _h_a, _h_b, _h_r,
-        _sub_a, _sub_b, _sub_r,
-        _valid_length = 1;
+        _question_param = {},
+        _question_type,
+        _correct_answer,
+        _current_answer = '?',
+        _operator,
+        _valid_length;
 
     var buildQuestion = function() {
-        _sub_a = UTIL.randomInRange(1, 9);
-        _sub_b = UTIL.randomInRange(1, _sub_a);
-        _sub_r = _sub_a - _sub_b;
+
+        _operand_a = UTIL.randomInRange(1, 9);
+        _operand_b = UTIL.randomInRange(1, _operand_a);
+        _result = _operand_a - _operand_b;
+
+        _operator = '-';
+        _valid_length = 1;
     };
 
     var pickQuestionType = function() {
-        _h_a = undefined;
-        _h_b = undefined;
-        _h_r = undefined;
+        _ask_a = false;
+        _ask_b = false;
+        _ask_result = false;
 
         _question_type = UTIL.randomInRange(1, 3);
         switch (_question_type) {
             case 1:
-                // Ask A
-                _h_a = true;
-                _correct_answer = _sub_a;
+                _ask_a = true;
+                _correct_answer = _operand_a;
                 break;
 
             case 2:
-                // Ask B
-                _h_b = true;
-                _correct_answer = _sub_b;
+                _ask_b = true;
+                _correct_answer = _operand_b;
                 break;
 
             case 3:
-                // Ask R
-                _h_r = true;
-                _correct_answer = _sub_r;
+                _ask_result = true;
+                _correct_answer = _result;
                 break;
         }
     };
+
     var formQuestion = function() {
         _question_param = {
-            hide_1: _h_a,
-            hide_2: _h_b,
-            hide_r: _h_r,
-            op_1: _sub_a,
-            op_2: _sub_b,
-            operator: '-',
-            op_result: _sub_r,
+            ask_a: _ask_a,
+            ask_b: _ask_b,
+            ask_result: _ask_result,
+            operand_a: _operand_a,
+            operand_b: _operand_b,
+            result: _result,
+            operator: _operator,
             current_answer: _current_answer
         };
     };
@@ -61,7 +63,7 @@ var Q_SubOneDigit = (function() {
 
     var renderQuestion = function() {
         if (_question_template === undefined) {
-            $.get('templates/two_component_operation.mustache.html', function(template){
+            $.get('templates/two_component_operation.mustache.html', function(template) {
                 _question_template = template;
                 fillHtml();
             });
@@ -69,7 +71,6 @@ var Q_SubOneDigit = (function() {
             fillHtml();
         }
     };
-
 
     return {
         NewQuestion: function() {
