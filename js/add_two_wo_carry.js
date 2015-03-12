@@ -13,15 +13,14 @@ var Q_AddTwoDigit = (function() {
 
 
     var buildQuestion = function() {
-        // Add two digit number without carry.
+        // Add two digit numbers without carry.
+        // That is, (B + D < 10),
+        //
         //      A B
         //   +  C D
         //   ______
         //      E F
         //
-        // _num_AB, _num_CD, _num_EF
-        // _dig_A, _dig_B, _dig_C,
-        // _dig_D, _dig_E, _dig_F
         _num_EF = UTIL.randomInRange(20, 99);
         _dig_F = _num_EF % 10;
         _dig_E = Math.floor(_num_EF / 10);
