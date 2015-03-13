@@ -19,13 +19,15 @@ var Q_SubTwoDigit = (function() {
         //    E F
         //
         var num_AB, num_CD, num_EF,
-            dig_A, dig_B, dig_C, dig_D, dig_E, dig_F;
+            dig_A, dig_B, dig_C, dig_D;
 
-        // TODO ...
-        num_AB = 35;
-        num_CD = 12;
-        num_EF = 23;
-        // END
+        dig_A = UTIL.randomInRange(2, 9);
+        dig_B = UTIL.randomInRange(0, 9);
+        dig_C = UTIL.randomInRange(1, dig_A - 1);
+        dig_D = UTIL.randomInRange(0, dig_B);
+        num_AB = 10 * dig_A + dig_B;
+        num_CD = 10 * dig_C + dig_D;
+        num_EF = num_AB - num_CD;
 
         _operand_a = num_AB;
         _operand_b = num_CD;
