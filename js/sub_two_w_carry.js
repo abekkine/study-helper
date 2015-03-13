@@ -19,13 +19,15 @@ var Q_SubTwoDigitWithCarry = (function() {
         //    E F
         //
         var num_AB, num_CD, num_EF,
-            dig_A, dig_B, dig_C, dig_D, dig_E, dig_F;
+            dig_A, dig_B, dig_C, dig_D;
 
-        // TODO ...
-        num_AB = 73;
-        num_CD = 15;
-        num_EF = 58;
-        // END
+        dig_A = UTIL.randomInRange(3, 9);
+        dig_B = UTIL.randomInRange(0, 8);
+        dig_C = UTIL.randomInRange(1, dig_A - 2);
+        dig_D = UTIL.randomInRange(dig_B + 1, 9);
+        num_AB = 10 * dig_A + dig_B;
+        num_CD = 10 * dig_C + dig_D;
+        num_EF = num_AB - num_CD;
 
         _operand_a = num_AB;
         _operand_b = num_CD;
