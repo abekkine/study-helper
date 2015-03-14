@@ -3,6 +3,13 @@ var QUESTION_MGR = (function() {
     var question_list = [],
         current_question;
 
+    var Q_AddOneDigit = TwoNumberOperation(oneDigitAddition);
+    var Q_AddTwoDigitWithCarry = TwoNumberOperation(twoDigitAdditionWithCarry);
+    var Q_AddTwoDigit = TwoNumberOperation(twoDigitAdditionWithoutCarry);
+    var Q_SubOneDigit = TwoNumberOperation(oneDigitSubtraction);
+    var Q_SubTwoDigit = TwoNumberOperation(twoDigitSubtraction);
+    var Q_SubTwoDigitWithCarry = TwoNumberOperation(twoDigitSubtractionWithCarry);
+
     question_list.push(Q_AddOneDigit);
     question_list.push(Q_SubOneDigit);
     question_list.push(Q_AddTwoDigit);
