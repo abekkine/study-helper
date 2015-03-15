@@ -1,6 +1,6 @@
 body {
     font-color : #000;
-    font-family : ubuntu;
+    font-family : ubuntu, helvetica, arial;
     font-size : 16pt;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
