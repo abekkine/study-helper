@@ -1,4 +1,4 @@
-var twoDigitAdditionWithCarry = function() {
+var q_add_two_carry = function() {
     var num_AB, num_CD, num_EF,
         dig_A, dig_B, dig_C, dig_D;
 

@@ -1,4 +1,4 @@
- var oneDigitAddition = function() {
+ var q_add_one = function() {
 
     var num_A, num_B, num_C;
 

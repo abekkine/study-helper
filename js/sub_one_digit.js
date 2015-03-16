@@ -1,4 +1,4 @@
-var oneDigitSubtraction = function() {
+var q_sub_one = function() {
 
     var num_A, num_B, num_C;
 
