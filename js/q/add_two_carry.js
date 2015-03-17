@@ -14,7 +14,7 @@ var q_add_two_carry = function() {
     // Compute ones and tens.
     dig_B = UTIL.randomInRange(1, 9);
     dig_D = UTIL.randomInRange(10 - dig_B, 9);
-    dig_A = UTIL.randomInRange(1, 8);
+    dig_A = UTIL.randomInRange(1, 7);
     dig_C = UTIL.randomInRange(1, 8 - dig_A);
     // Compute numbers.
     num_AB = 10 * dig_A + dig_B;
