@@ -4,6 +4,7 @@ var QUESTION_MGR = (function() {
         current_question;
 
     var add_one = TwoNumberOperation(q_add_one),
+        mul_one = TwoNumberOperation(q_mul_one),
         add_two = TwoNumberOperation(q_add_two),
         add_two_carry = TwoNumberOperation(q_add_two_carry),
         sub_one = TwoNumberOperation(q_sub_one),
@@ -11,6 +12,7 @@ var QUESTION_MGR = (function() {
         sub_two_borrow = TwoNumberOperation(q_sub_two_borrow);
 
     question_list.push(add_one);
+    question_list.push(mul_one);
     question_list.push(add_two);
     question_list.push(add_two_carry);
     question_list.push(sub_one);
