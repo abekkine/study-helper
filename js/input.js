@@ -3,12 +3,12 @@ var INPUT = (function(game, question) {
         _keypad_template;
 
     var parseCharacter = function(key) {
-        if (key == 1027) {
+        if (key === 1027) {
             // Escape : 27
             // Clear entered string.
             _entered_string = '';
             question.ShowAnswer(_entered_string);
-        } else if (key == 1008) {
+        } else if (key === 1008) {
             // Backspace : 8
             // Delete last character from entered string.
             if (_entered_string.length > 0) {
@@ -16,7 +16,7 @@ var INPUT = (function(game, question) {
                                     0, _entered_string.length - 1);
                 question.ShowAnswer(_entered_string);
             }
-        } else if (key == 1013) {
+        } else if (key === 1013) {
             // Enter : 13
             if (_entered_string.length > 0) {
                 var result = question.CheckAnswer(_entered_string);
@@ -50,7 +50,7 @@ var INPUT = (function(game, question) {
             if (_keypad_template === undefined) {
                 $.get('templates/keypad.mustache.html', function(template) {
                     _keypad_template = template;
-                    keypad_html = Mustache.render(_keypad_template, {});
+                    var keypad_html = Mustache.render(_keypad_template, {});
                     $('#keypad').html(keypad_html);
 
                     $('.key').click(function() {
@@ -76,7 +76,6 @@ var INPUT = (function(game, question) {
         },
 
         AddOneCharacter: function(event) {
-            var value;
             var key = event.which;
 
             switch (key) {

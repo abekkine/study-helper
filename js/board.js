@@ -15,7 +15,7 @@ var BOARD = (function() {
     var setupBoard = function(boardSize) {
         var xyArray = boardSize.split('x');
 
-        if (xyArray.length == 2) {
+        if (xyArray.length === 2) {
             _board_width = parseInt(xyArray[0]);
             _board_height = parseInt(xyArray[1]);
         }
@@ -141,7 +141,7 @@ var BOARD = (function() {
 
         // Return true, if the board is empty.
         IsEmpty: function() {
-            return (_num_stones == 0);
+            return (_num_stones === 0);
         },
 
         // Return true if the board is full with stones.

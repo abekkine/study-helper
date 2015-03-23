@@ -1,0 +1,23 @@
+{
+    "maxparams": 5,
+    "maxdepth": 5,
+    "maxstatements": 10,
+    "maxcomplexity": 5,
+    "forin": true,
+    "freeze": true,
+    "nocomma": true,
+    "nonbsp": true,
+    "curly": true,
+    "eqeqeq": true,
+    "eqnull": true,
+    "expr": true,
+    "latedef": true,
+    "onevar": true,
+    "noarg": true,
+    "node": true,
+    "trailing": true,
+    "undef": true,
+    "unused": true,
+    "loopfunc": true
+}
+
