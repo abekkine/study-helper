@@ -71,7 +71,7 @@ function TwoNumberOperation(builder) {
         },
 
         CheckAnswer: function(answer) {
-            return (_correct_answer === answer);
+            return (_correct_answer.toString() === answer);
         },
 
         ValidChar: function(c) {
