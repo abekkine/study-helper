@@ -1,6 +1,6 @@
-$(function() {
+$(function () {
 
-    $(document).keydown(function(event) {
+    $(document).keydown(function (event) {
         INPUT.AddOneCharacter(event);
     });
 

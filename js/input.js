@@ -1,8 +1,8 @@
-var INPUT = (function(game, question) {
+var INPUT = (function (game, question) {
     var _entered_string = '',
         _keypad_template;
 
-    var parseCharacter = function(key) {
+    var parseCharacter = function (key) {
         if (key === 1027) {
             // Escape : 27
             // Clear entered string.
@@ -13,7 +13,7 @@ var INPUT = (function(game, question) {
             // Delete last character from entered string.
             if (_entered_string.length > 0) {
                 _entered_string = _entered_string.substring(
-                                    0, _entered_string.length - 1);
+                    0, _entered_string.length - 1);
                 question.ShowAnswer(_entered_string);
             }
         } else if (key === 1013) {
@@ -43,31 +43,31 @@ var INPUT = (function(game, question) {
             }
         }
     };
-    var renderKeypad = function() {};
+    var renderKeypad = function () {};
 
     return {
-        ShowKeypad: function() {
+        ShowKeypad: function () {
             if (_keypad_template === undefined) {
-                $.get('templates/keypad.mustache.html', function(template) {
+                $.get('templates/keypad.mustache.html', function (template) {
                     _keypad_template = template;
                     var keypad_html = Mustache.render(_keypad_template, {});
                     $('#keypad').html(keypad_html);
 
-                    $('.key').click(function() {
+                    $('.key').click(function () {
                         var value = $(this).text();
                         switch (value) {
-                            case 'CLR':
-                                parseCharacter(1027);
-                                break;
-                            case 'DEL':
-                                parseCharacter(1008);
-                                break;
-                            case '=':
-                                parseCharacter(1013);
-                                break;
-                            default:
-                                parseCharacter(value);
-                                break;
+                        case 'CLR':
+                            parseCharacter(1027);
+                            break;
+                        case 'DEL':
+                            parseCharacter(1008);
+                            break;
+                        case '=':
+                            parseCharacter(1013);
+                            break;
+                        default:
+                            parseCharacter(value);
+                            break;
                         }
                         console.log(value);
                     });
@@ -75,26 +75,26 @@ var INPUT = (function(game, question) {
             }
         },
 
-        AddOneCharacter: function(event) {
+        AddOneCharacter: function (event) {
             var key = event.which;
 
             switch (key) {
-                case 27: // Escape
-                case 8: // Backspace
-                case 13: // Enter
-                    event.preventDefault();
-                    parseCharacter(1000 + key);
-                    break;
+            case 27: // Escape
+            case 8: // Backspace
+            case 13: // Enter
+                event.preventDefault();
+                parseCharacter(1000 + key);
+                break;
 
-                default:
-                    if (key >= 96 && key <= 105) {
-                        // Numpad fix
-                        parseCharacter(key - 96);
-                    } else {
-                        // Other keys
-                        parseCharacter(String.fromCharCode(key));
-                    }
-                    break;
+            default:
+                if (key >= 96 && key <= 105) {
+                    // Numpad fix
+                    parseCharacter(key - 96);
+                } else {
+                    // Other keys
+                    parseCharacter(String.fromCharCode(key));
+                }
+                break;
             }
         }
     };

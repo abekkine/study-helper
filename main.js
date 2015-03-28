@@ -9,7 +9,7 @@ app.use('/js', express.static(__dirname + '/js'));
 app.use('/sounds', express.static(__dirname + '/sounds'));
 app.use('/templates', express.static(__dirname + '/templates'));
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
     var index_html = index_template({});
 
     res.end(index_html);

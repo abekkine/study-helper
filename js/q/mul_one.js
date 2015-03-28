@@ -1,4 +1,4 @@
-var q_mul_one = function() {
+var q_mul_one = function () {
 
     var num_A, num_B, num_C;
 

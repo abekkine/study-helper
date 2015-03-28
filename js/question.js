@@ -1,4 +1,4 @@
-var QUESTION_MGR = (function() {
+var QUESTION_MGR = (function () {
 
     var question_list = [],
         current_question;
@@ -20,25 +20,25 @@ var QUESTION_MGR = (function() {
     question_list.push(sub_two_borrow);
 
     return {
-        NewQuestion: function() {
+        NewQuestion: function () {
             var randomIndex = UTIL.randomInRange(0, question_list.length - 1);
             current_question = question_list[randomIndex];
             current_question.NewQuestion();
         },
 
-        CheckAnswer: function(answer) {
+        CheckAnswer: function (answer) {
             return current_question.CheckAnswer(answer);
         },
 
-        ValidChar: function(c) {
+        ValidChar: function (c) {
             return current_question.ValidChar(c);
         },
 
-        ValidLength: function(l) {
+        ValidLength: function (l) {
             return current_question.ValidLength(l);
         },
 
-        ShowAnswer: function(answer) {
+        ShowAnswer: function (answer) {
             current_question.ShowAnswer(answer);
         }
     };
