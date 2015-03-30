@@ -1,4 +1,4 @@
-var q_sub_two = function () {
+var q_sub_two = function (UTIL) {
     var num_AB, num_CD, num_EF,
         dig_A, dig_B, dig_C, dig_D;
 
@@ -27,3 +27,5 @@ var q_sub_two = function () {
         valid_length: 2
     };
 };
+
+exports.sub_two = q_sub_two;

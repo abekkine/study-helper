@@ -6,3 +6,5 @@ var UTIL = (function () {
         }
     };
 })();
+
+exports.util = UTIL;

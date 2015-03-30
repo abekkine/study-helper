@@ -64,7 +64,7 @@ function TwoNumberOperation(builder) {
 
     return {
         NewQuestion: function () {
-            _question_data = buildQuestion();
+            _question_data = buildQuestion(UTIL);
             pickQuestionType();
             formQuestion();
             renderQuestion();

@@ -1,4 +1,4 @@
-var q_add_two = function () {
+var q_add_two = function (UTIL) {
     var num_AB, num_CD, num_EF,
         dig_A, dig_B, dig_C, dig_D, dig_E, dig_F;
 
@@ -32,3 +32,5 @@ var q_add_two = function () {
         valid_length: 2
     };
 };
+
+exports.add_two = q_add_two;

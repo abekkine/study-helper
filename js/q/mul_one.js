@@ -1,4 +1,4 @@
-var q_mul_one = function () {
+var q_mul_one = function (UTIL) {
 
     var num_A, num_B, num_C;
 
@@ -22,3 +22,5 @@ var q_mul_one = function () {
         valid_length: 2
     };
 };
+
+exports.mul_one = q_mul_one;

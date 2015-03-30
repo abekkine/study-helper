@@ -1,4 +1,4 @@
- var q_add_one = function () {
+ var q_add_one = function (UTIL) {
 
      var num_A, num_B, num_C;
 
@@ -26,3 +26,5 @@
          valid_length: 1
      };
  };
+
+exports.add_one = q_add_one;

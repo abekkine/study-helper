@@ -1,4 +1,4 @@
-var q_sub_one = function () {
+var q_sub_one = function (UTIL) {
 
     var num_A, num_B, num_C;
 
@@ -22,3 +22,5 @@ var q_sub_one = function () {
         valid_length: 1
     };
 };
+
+exports.sub_one = q_sub_one;

@@ -1,4 +1,4 @@
-var q_add_two_carry = function () {
+var q_add_two_carry = function (UTIL) {
     var num_AB, num_CD, num_EF,
         dig_A, dig_B, dig_C, dig_D;
 
@@ -29,3 +29,5 @@ var q_add_two_carry = function () {
         valid_length: 2
     };
 };
+
+exports.add_two_carry = q_add_two_carry;
