@@ -1,4 +1,5 @@
 'use strict';
+var git = require('git-rev');
 var express = require('express');
 var swig = require('swig');
 var app = express();
@@ -8,6 +9,12 @@ app.use('/css', express.static(__dirname + '/css'));
 app.use('/js', express.static(__dirname + '/js'));
 app.use('/sounds', express.static(__dirname + '/sounds'));
 app.use('/templates', express.static(__dirname + '/templates'));
+
+app.get('/rev', function (req, res) {
+    git.short(function(revstr){
+        res.end(revstr);
+    });
+});
 
 app.get('/', function (req, res) {
     var index_html = index_template({});

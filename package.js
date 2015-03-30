@@ -9,5 +9,6 @@
 , "dependencies" :
   { "express" : "4.12.3"
   , "swig" : "1.4.2"
+  , "git-rev" : "0.2.1"
   }
 }
