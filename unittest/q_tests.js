@@ -59,8 +59,14 @@ exports['mul_one'] = function(test) {
 
     var q = mul_one(util);
 
+    test.expect(6);
+
     test.equal(q.operator, 'x');
-    test.ok(false, 'Fail since incomplete');
+    test.equal(q.operand_a * q.operand_b, q.result);
+    test.equal(q.valid_length, 2);
+    test.equal(q.operand_a >= 0 && q.operand_a <=9, true);
+    test.equal(q.operand_b >= 0 && q.operand_b <=9, true);
+    test.equal(q.result >=0 && q.result <=81, true);
     test.done();
 };
 
